@@ -1,3 +1,2 @@
-# personal macbook config
-install shadowsocks first
-then bash macbook_init.sh
+# This is my personal zsh and vim config
+bash system_init.sh
