@@ -1,6 +1,18 @@
 OS_RELEASE=$(uname)
 
 ###############################################################
+# => This section is for zsh
+###############################################################
+# set zsh as default shell
+echo "++++++++++ change shell to zsh ++++++++++"
+chsh -s /bin/zsh
+
+# install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+cp ~/.zshrc ~/.zsh_origin
+
+
+###############################################################
 # => This section is for custom config
 ###############################################################
 # clone my config
@@ -49,18 +61,6 @@ if [ $OS_RELEASE = "Linux" ];then
     echo "======= install fzf ========"
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && cd .fzf && ./install
 fi
-
-###############################################################
-# => This section is for zsh
-###############################################################
-# set zsh as default shell
-echo "++++++++++ change shell to zsh ++++++++++"
-chsh -s /bin/zsh
-
-# install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-cp ~/.zshrc ~/.zsh_origin
-
 
 ###############################################################
 # => This section is for vim
