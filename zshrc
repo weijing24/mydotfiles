@@ -197,7 +197,6 @@ alias vimplugupgrade="vim +PlugUpgrade! +qa!"
 alias wget="wget -c "
 alias axel="axel -a -n 5 "
 alias lock="m lock"
-alias vim='/usr/local/bin/vim'
 # alias ag="ag --color-path 35 --color-match '1;35' --color-line-number 32"
 
 # system env
@@ -208,6 +207,7 @@ export LC_CTYPE="en_US.UTF-8"
 export DISABLE_MAGIC_FUNCTIONS=true
 # Go path for macOS
 if [[ "$(uname)" == 'Darwin' ]]; then
+    alias vim='/usr/local/bin/vim'
     export GOPATH=$HOME/go
     export GOROOT=/usr/local/opt/go/libexec
     export PATH=$PATH:${GOPATH}/bin:${GOROOT}/bin
@@ -224,5 +224,3 @@ export FZF_DEFAULT_OPTS='
         --preview-window "right:60%:wrap"
         '
 #         # --preview "head -100 {}"
-
-source /Users/jim/Library/Preferences/org.dystroy.broot/launcher/bash/br
