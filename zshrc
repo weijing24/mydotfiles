@@ -205,6 +205,7 @@ export PATH="$HOME/.tfenv/bin:$PATH"
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export DISABLE_MAGIC_FUNCTIONS=true
+export BAT_CONFIG_PATH="$HOME/.bat.conf"    # must use $HOME, ~ not work
 # Go path for macOS
 if [[ "$(uname)" == 'Darwin' ]]; then
     alias vim='/usr/local/bin/vim'
