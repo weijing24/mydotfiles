@@ -109,32 +109,14 @@ autoload -U compinit && compinit
 # Add em alias for macOS
 export PS1_backup=$PS1
 
-function proxy () {
-    local prefix
-    if [ "$1" = "on" ]; then
-	export http_proxy=socks5://127.0.0.1:1086
-	export https_proxys=socks5://127.0.0.1:1086
-        # echo Local HTTP Proxy is enabled.
-        prefix="ProxyOn"
-    else
-        unset https_proxy
-        unset http_proxy
-        # echo Local HTTP Proxy is disabled.
-        prefix=""
-    fi
-    # export PS1="%K{blue} $prefix $PS1_backup"
-    export PS1="$prefix $PS1_backup"
-}
-proxy off
-
 function gitconfig_ui () {
-	git config user.name jim
-	git config user.email jim.wei@ui.com
+    git config user.name jim
+    git config user.email jim.wei@ui.com
 }
 
 function gitconfig_github() {
-        git config user.name weijing24
-        git config user.email 645509024@qq.com
+    git config user.name weijing24
+    git config user.email 645509024@qq.com
 }
 
 function upgrade_custom_plugins () {
