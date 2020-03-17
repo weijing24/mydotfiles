@@ -1,0 +1,33 @@
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[user]
+#	name = weijing24
+#	email = 645509024@qq.com
+	name = jim.wei
+	email = jim.wei@ui.com
+[http]
+[https]
+[https]
+[http]
+[https]
+	; proxy = socks5://127.0.0.1:1086
+[http]
+	; proxy = socks5://127.0.0.1:1086
+[core]
+	editor = vim
+	excludesfile = /Users/jim/.gitignore
+[merge]
+	tool = vimdiff
+[pull]
+	rebase = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/jim/.stCommitMsg

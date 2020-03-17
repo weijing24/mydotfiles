@@ -1,0 +1,13 @@
+.swp
+.Trash
+.terraform
+.vscode
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
+.idea
+
+vendor/*
+composer.phar
+composer.lock
