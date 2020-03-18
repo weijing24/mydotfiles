@@ -34,6 +34,12 @@ done
 ###############################################################
 # Install brew
 if [ $OS_RELEASE = "Darwin" ];then
+    # set hostname
+    echo "++++++++++ change hostname and computername ++++++++++"
+    sudo scutil --set HostName MacBook-Pro
+    # scutil --set LocalHostName MacBook-Pro
+    sudo scutil --set ComputerName Jims-MacBook-Pro
+
     echo "+++++++++ install brew +++++++++"
     . ~/.zshrc > /dev/null 2>&1
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
