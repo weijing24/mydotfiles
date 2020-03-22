@@ -50,6 +50,7 @@ plugins=(
     git-extras
     autojump
     docker
+    docker-compose
     web-search
     encode64            # e64 d64
     # emoji
