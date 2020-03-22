@@ -31,3 +31,5 @@
 	trustExitCode = true
 [commit]
 	template = /Users/jim/.stCommitMsg
+[hub]
+	protocol = ssh

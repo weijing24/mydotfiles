@@ -181,7 +181,7 @@ alias vimplugupgrade="vim +PlugUpgrade! +qa!"
 alias wget="wget -c "
 alias axel="axel -a -n 5 "
 alias lock="m lock"
-hub > /dev/null 2>&1 && eval "$(hub alias -s)"
+hub version > /dev/null 2>&1 && eval "$(hub alias -s)"
 exa > /dev/null 2>&1 && alias ls=exa
 neofetch > /dev/null 2>&1 && alias sysinfo="neofetch"
 # alias ag="ag --color-path 35 --color-match '1;35' --color-line-number 32"
