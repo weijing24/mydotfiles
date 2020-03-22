@@ -181,7 +181,7 @@ alias vimplugupgrade="vim +PlugUpgrade! +qa!"
 alias wget="wget -c "
 alias axel="axel -a -n 5 "
 alias lock="m lock"
-eval "alias ls=exa"
+exa > /dev/null 2>&1 && alias ls=exa
 # alias ag="ag --color-path 35 --color-match '1;35' --color-line-number 32"
 
 # system env
