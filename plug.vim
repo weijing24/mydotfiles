@@ -9,11 +9,13 @@ call plug#begin('~/.vim/plugged')
 " vim library
 Plug 'ascenator/L9', {'name': 'newL9'}
 " vim display
+" Plug 'mhinz/vim-startify'                             " start page
 Plug 'preservim/nerdtree'                              " sidebar
 Plug 'Xuyuanp/nerdtree-git-plugin'                      " show git status
 Plug 'sonph/onehalf', {'rtp': 'vim/'}			" vim theme
 Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/lightline.vim'				" status theme
+Plug 'maximbaz/lightline-ale'
 " Plug 'mhinz/vim-startify'                             " start page
 " git plugin
 Plug 'tpope/vim-fugitive'
@@ -22,7 +24,7 @@ Plug 'mhinz/vim-signify'                                " Show a diff
 Plug 'jreybert/vimagit'
 " function
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'	" snips
-Plug 'scrooloose/syntastic'                          " 语法检查 replace w0rp/ale
+Plug 'dense-analysis/ale'                          " 语法检查 replace scrooloose/syntastic
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'ycm-core/YouCompleteMe'
 " Plug 'godlygeek/tabular'
