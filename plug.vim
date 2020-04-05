@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'ascenator/L9', {'name': 'newL9'}
 " vim display
 " Plug 'mhinz/vim-startify'                             " start page
-Plug 'preservim/nerdtree'                              " sidebar
+Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'                      " show git status
 Plug 'sonph/onehalf', {'rtp': 'vim/'}			" vim theme
 Plug 'ryanoasis/vim-devicons'
@@ -20,7 +20,7 @@ Plug 'maximbaz/lightline-ale'
 " git plugin
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
-Plug 'mhinz/vim-signify'                                " Show a diff
+Plug 'mhinz/vim-signify'                                " Show a diff replace gitgutter
 Plug 'jreybert/vimagit'
 " function
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'	" snips

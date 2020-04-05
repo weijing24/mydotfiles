@@ -2,8 +2,9 @@
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
+let g:mapleader = ' '
 
-" Set to auto read when a file is changed from the outside
+" Set to auto read when a file is changed
 set autoread
 au FocusGained,BufEnter * checktime
 
@@ -54,12 +55,32 @@ filetype plugin indent on 	" Load plugins according to detected filetype
 autocmd FileType yaml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType c,cpp,python,go setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
+" 关闭方向键, 强迫自己用 hjkl
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
 
 " encode settings
 " ---------------------------------------------------------------------------------------------
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=utf-8
+" for macvim
+if has("gui_macvim")
+  set guifont=Anonymous\ Pro:h16
+  set linespace=2   " set the line height
+
+  " Options for Graphic version of VIM
+  set guioptions-=T "No Toolbar
+  set guioptions-=L "No left hand scrollbars
+  set guioptions-=r "No right hand scrollbars
+  set guioptions-=m "No menu bar
+
+  " Don't beep
+  set visualbell
+endif
+
 
 " hightlight settings
 " ---------------------------------------------------------------------------------------------
@@ -69,6 +90,8 @@ syntax on		" 进行语法检验，颜色显示
 set hlsearch		" 不要高亮被搜索的句子
 set incsearch		" search as characters are entered
 set showmatch		" highlight matching [{()}]
+
+set clipboard+=unnamed
 
 " Return to last edit position when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif

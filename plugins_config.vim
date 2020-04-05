@@ -1,5 +1,6 @@
-" NERDTree config
-" ---------------------------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => NERDTree config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <C-t> :NERDTreeToggle<CR>
 " 打开vim时如果没有文件自动打开NERDTree
 autocmd StdinReadPre * let s:std_in=1
@@ -16,8 +17,9 @@ let g:NERDTreeWinSize=30"  视窗大小
 " let g:NERDTreeMinimalUI=1
 
 
-" startify config
-" ---------------------------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => startify config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " autocmd VimEnter *
 "             \   if !argc()
 "             \ |   Startify
@@ -26,40 +28,34 @@ let g:NERDTreeWinSize=30"  视窗大小
 "             \ | endif
 
 
-" lightline.vim config
-" -------------------------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => lightline.vim config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme onehalfdark
 set laststatus=2	" 显示状态行
 let g:lightline = {
       \ 'colorscheme': 'onehalfdark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
-      \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileencoding', 'filetype' ] ]
+      \   'right': [ [ 'linter_warnings', 'linter_errors', 'linter_ok', 'lineinfo' ], ['percent'], [ 'fileencoding', 'filetype' ] ]
       \ },
       \ 'component_function': {
       \   'mode': 'LightlineMode',
       \   'fugitive': 'LightlineFugitive',
       \   'filetype': 'MyFiletype',
       \   'fileencoding': 'LightlineFileencoding',
-      \   'syntastic': 'SyntasticStatuslineFlag'
+      \   'linter_warnings': 'lightline#ale#warnings',
+      \   'linter_errors': 'lightline#ale#errors',
+      \   'linter_ok': 'lightline#ale#ok',
+      \ },
+      \ 'component_type': {
+      \   'readonly': 'error',
+      \   'linter_warnings': 'warning',
+      \   'linter_errors': 'error',
+      \   'linter_ok': 'ok',
       \ },
       \ 'subseparator': { 'left': '|', 'right': '|' }
 \ }
-" let g:lightline.component_expand = {
-"       \  'linter_checking': 'lightline#ale#checking',
-"       \  'linter_infos': 'lightline#ale#infos',
-"       \  'linter_warnings': 'lightline#ale#warnings',
-"       \  'linter_errors': 'lightline#ale#errors',
-"       \  'linter_ok': 'lightline#ale#ok',
-"       \ }
-" let g:lightline.component_type = {
-"       \     'linter_checking': 'right',
-"       \     'linter_infos': 'right',
-"       \     'linter_warnings': 'warning',
-"       \     'linter_errors': 'error',
-"       \     'linter_ok': 'right',
-"       \ }
-" let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
 function! LightlineMode()
     let fname = expand('%:t')
     return fname =~# 'NERD_tree' ? 'NERDTree' :
@@ -89,9 +85,20 @@ function! LightlineFileencoding()
     return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
 endfunction
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => lightline ale (syntax checker and linter)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" need to install fone awesome
+let g:lightline#ale#indicator_checking = "\uf110"
+let g:lightline#ale#indicator_infos = "\uf129"
+let g:lightline#ale#indicator_warnings = "\ue00a"
+let g:lightline#ale#indicator_errors = "\uf00d"
+let g:lightline#ale#indicator_ok = "\uf00c"
 
-" vim-fugitive config
-" -------------------------------------------------------------------------------------------
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-fugitive config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <space>gs :Gstatus<cr>
 nnoremap <space>gd :Gdiff<cr>
 nnoremap <space>ga :Git add -p<cr>
@@ -113,13 +120,15 @@ let g:signify_update_on_focusgained = 1
 " auto-pairs config
 au Filetype vim let b:AutoPairs= {'(':')', '[':']', '{':'}',"'":"'", '`':'`'}
 
-" vim-commentary config
-" ---------------------------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-commentary config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType python,shell set commentstring=#\ %s                 " 设置Python,shell注释字符
 autocmd FileType java,c,cpp set commentstring=//\ %s
 
-" fzf config
-" ---------------------------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => fzf config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 let g:fzf_default_command='rg --files --no-ignore-vcs --hidden'
 let g:fzf_layout = { 'right': '~60%' }
@@ -138,8 +147,9 @@ command! -bang -nargs=* Rg
   \                            : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
   \                 <bang>0)
 
-" vim-ack config
-" ---------------------------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-ack config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if executable('rg')
   " let g:ackprg = 'rg -S -H --nogroup --column'
   let g:ackprg = 'rg --vimgrep --no-heading'
@@ -168,41 +178,37 @@ nnoremap <silent> <Leader>C :call fzf#run({
 \   'left':    30
 \ })<CR>
 
-" ale config
-" ---------------------------------------------------------------------------------------------
-"文件内容发生变化时不进行检查
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Ale (syntax checker and linter)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Only run linting when saving the file
 let g:ale_lint_on_text_changed = 'never'
-"打开文件时不进行检查
 let g:ale_lint_on_enter = 0
 
+" keep the sign gutter open
 let g:ale_set_highlights = 0
+" let g:ale_sign_column_always = 1
+
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚡'
-let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" keep the sign gutter open
-let g:ale_sign_column_always = 1
-" show errors or warnings in my statusline
-let g:airline#extensions#ale#enabled = 1
-" Set this variable to 1 to fix files when you save them.
+
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
 " use quickfix list instead of the loclist
 let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1                      " 打开quitfix对话框
-" let g:ale_open_list = 1
-" let g:ale_keep_list_window_open = 1
-" let g:ale_list_window_size = 13
-" let g:ale_set_highlights = 0
-" let g:ale_echo_msg_error_str = 'E'
-" let g:ale_echo_msg_warning_str = 'W'
-" let g:ale_echo_msg_format = '[%linter%] %code: %%s'
+let g:ale_set_quickfix = 1
+let g:ale_open_list = 1
+let g:ale_keep_list_window_open = 1
+let g:ale_list_window_size = 8
+
+let g:ale_linters_explicit = 1
 let g:ale_linters = {
-\   'c++': ['clang'],
-\   'c': ['clang'],
+\   'c++': ['cppcheck','clang', 'gcc'],
+\   'c': ['cppcheck','clang', 'gcc'],
+\   'bash': ['shellcheck'],
 \   'python': ['pylint'],
+\   'vim':  ['vint'],
+\   'markdown': ['markdownlint']
 \}
 
 
@@ -221,8 +227,9 @@ let g:ale_linters = {
 let g:auto_save = 0
 let g:auto_save_events = ["InsertLeave", "TextChanged", "TextChangedI", "CursorHoldI", "CompleteDone"]
 
-" vim-go config
-" ---------------------------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-go config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_auto_type_info = 1
@@ -254,14 +261,16 @@ autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t <Plug>(go-test)
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 
-" vim-terraform config
-" ---------------------------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-terraform config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:terraform_align=1
 let g:terraform_fold_sections=1
 " let g:terraform_fmt_on_save=1
 
-" easymotion config
-" ---------------------------------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => easymotion config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let g:EasyMotion_smartcase = 1
 map <Leader><leader>h <Plug>(easymotion-linebackward)
 map <Leader><Leader>j <Plug>(easymotion-j)

@@ -219,3 +219,13 @@ export FZF_DEFAULT_OPTS='
         --preview-window "right:60%:wrap"
         '
 #         # --preview "head -100 {}"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/vault vault
+
+jdk() {
+        version=$1
+        export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
+        java -version
+ }
+
