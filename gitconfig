@@ -19,8 +19,13 @@
 [core]
 	editor = vim
 	excludesfile = /Users/jim/.gitignore
+; [merge]
+	; tool = vimdiff
 [merge]
-	tool = vimdiff
+    tool = meld
+	conflictstyle = diff3
+[mergetool "meld"]
+    cmd = meld $LOCAL $BASE $REMOTE --output=$MERGED --auto-merge
 [pull]
 	rebase = true
 [difftool "sourcetree"]
