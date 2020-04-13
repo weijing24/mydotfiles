@@ -79,6 +79,9 @@ if has("gui_macvim")
 
   " Don't beep
   set visualbell
+  set lines=40 columns=130
+  " set guifont=Menlo\ Bold:h18
+  set guifont=Hack\ Nerd\ Font:h18\Bold
 endif
 
 
