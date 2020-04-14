@@ -180,7 +180,6 @@ j() {
 alias his="history -i"
 alias cat="bat"
 alias sed='gsed'
-alias gck='git checkout'
 alias vimpluginstall="vim +PlugInstall! +qa!"
 alias vimplugupdate="vim +PlugUpdate! +qa!"
 alias vimplugclean="vim +PlugClean! +qa!"
