@@ -64,7 +64,7 @@ plugins=(
     ssh		#git@github.com:zpm-zsh/ssh.git
     fzf
     mysql-colorize
-    tmux
+    tmux        # ta tad ts tl tksv tkss
     git-open
 )
 
