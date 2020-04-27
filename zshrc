@@ -66,6 +66,7 @@ plugins=(
     mysql-colorize
     tmux        # ta tad ts tl tksv tkss
     git-open
+    ripgrep
 )
 
 source $ZSH/oh-my-zsh.sh
