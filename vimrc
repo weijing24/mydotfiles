@@ -2,7 +2,6 @@
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
-let g:mapleader = ' '
 
 " Set to auto read when a file is changed
 set autoread
@@ -41,7 +40,6 @@ set expandtab              	" Use spaces instead of tabs.
 set smarttab                " Be smart when using tabs
 set tabstop=4
 set shiftwidth=4
-set lbr
 set tw=500
 " set autoindent			" 自动缩进
 set si                      "Smart indent
@@ -68,9 +66,6 @@ set termencoding=utf-8
 set encoding=utf-8
 " for macvim
 if has("gui_macvim")
-  set guifont=Anonymous\ Pro:h16
-  set linespace=2   " set the line height
-
   " Options for Graphic version of VIM
   set guioptions-=T "No Toolbar
   set guioptions-=L "No left hand scrollbars
@@ -79,8 +74,7 @@ if has("gui_macvim")
 
   " Don't beep
   set visualbell
-  set lines=40 columns=130
-  " set guifont=Menlo\ Bold:h18
+  " set lines=40 columns=130
   set guifont=Hack\ Nerd\ Font:h18\Bold
 endif
 
