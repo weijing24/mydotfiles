@@ -29,6 +29,7 @@ endif
 set lazyredraw          " Don't redraw while executing macros
 set noswapfile			" 停用 swap 文件
 set nobackup			" 不需要备份文件
+set backupcopy=yes      " 不修改 inode
 set nowritebackup		" 编辑的时候不需要备份文件
 set noundofile			" 不创建撤销文件
 set ignorecase			" 设置默认进行大小写不敏感查找
