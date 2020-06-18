@@ -10,7 +10,7 @@ ZSH_THEME="random"
 ZSH_THEME="kphoen"
 ZSH_THEME="essembeh"
 ZSH_THEME="juanghurtado"
-ZSH_THEME="tjkirch"
+# ZSH_THEME="tjkirch"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -228,4 +228,12 @@ jdk() {
         export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
         java -version
  }
+
+export EDITOR="vim"
+
+github_latest_release_download() {
+    curl -s "https://api.github.com/repos/$1/releases/latest"  | jq -r ".assets[] | select(.name | contains(\"zip\"|\"gz\"|\"dmg\")) | .browser_download_url"
+}
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
