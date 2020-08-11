@@ -34,3 +34,5 @@ composer.lock
 # .tfstate files
 *.tfstate
 *.tfstate.*
+
+log
