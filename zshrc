@@ -188,6 +188,7 @@ alias vimplugupgrade="vim +PlugUpgrade! +qa!"
 alias wget="wget -c "
 alias axel="axel -a -n 5 "
 alias lock="m lock"
+alias gop="git remote prune origin"
 hub version > /dev/null 2>&1 && eval "$(hub alias -s)"
 exa > /dev/null 2>&1 && alias ls=exa
 neofetch > /dev/null 2>&1 && alias sysinfo="neofetch"
@@ -202,7 +203,7 @@ export DISABLE_MAGIC_FUNCTIONS=true
 export BAT_CONFIG_PATH="$HOME/.bat.conf"    # must use $HOME, ~ not work
 # Go path for macOS
 if [[ "$(uname)" == 'Darwin' ]]; then
-    alias vim='/usr/local/bin/vim'
+ #   alias vim='/usr/local/bin/vim'
     export GOPATH=$HOME/go
     export GOROOT=/usr/local/opt/go/libexec
     export PATH=$PATH:${GOPATH}/bin:${GOROOT}/bin
@@ -236,4 +237,3 @@ github_latest_release_download() {
 }
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
