@@ -37,21 +37,20 @@ set smartcase			" 如果有一个大写字母，则切换到大小写敏感查�
 set maxmempattern=2000000 	" 字符串匹配最大内存
 set nocompatible		" 去除VI一致性
 set noshowmode			" 不显示 INSERT
-set expandtab              	" Use spaces instead of tabs.
-set smarttab                " Be smart when using tabs
-set tabstop=4
-set shiftwidth=4
-set tw=500
-" set autoindent			" 自动缩进
 set si                      "Smart indent
 set wrap                    "Wrap lines
 set foldmethod=indent           " 代码折叠
 set nofoldenable                " 不自动折叠
 set backspace=indent,eol,start " for ycmi del
+set binary
+set noeol        " solve no newline at end of file
 set whichwrap+=<,>,h,l
 filetype plugin indent on 	" Load plugins according to detected filetype
 " ts 一个TAB字符占多少个空格、sw 每层缩进的空格数、sts 每次退格将删除X个空格
-autocmd FileType yaml setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+set ts=4
+set expandtab
+set autoindent
+autocmd FileType yaml,terraform,shell setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType c,cpp,python,go setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " 关闭方向键, 强迫自己用 hjkl

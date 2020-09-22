@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'ascenator/L9', {'name': 'newL9'}
 " vim display
 " Plug 'mhinz/vim-startify'                             " start page
-Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'                      " show git status
 Plug 'sonph/onehalf', {'rtp': 'vim/'}			" vim theme
 Plug 'ryanoasis/vim-devicons'
@@ -26,7 +26,6 @@ Plug 'jreybert/vimagit'
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'	" snips
 Plug 'dense-analysis/ale'                          " 语法检查 replace scrooloose/syntastic
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-Plug 'ycm-core/YouCompleteMe'
 " Plug 'godlygeek/tabular'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
