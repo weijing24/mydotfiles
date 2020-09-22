@@ -17,6 +17,7 @@ Thumbs.db
 
 .idea
 .vscode
+.mu_repo
 
 # python
 __pycache__/

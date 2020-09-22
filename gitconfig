@@ -4,10 +4,10 @@
 	; proxy = socks5://127.0.0.1:1086
 
 [user]
-#	name = weijing24
-#	email = 645509024@qq.com
-	name = jim.wei
-	email = jim.wei@ui.com
+	name = weijing24
+	email = 645509024@qq.com
+[includeIf "gitdir:~/workspace/"]
+	path = ~/.gitconfig_ui
 
 [core]
 	editor = vim
