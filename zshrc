@@ -67,6 +67,8 @@ plugins=(
     tmux        # ta tad ts tl tksv tkss
     git-open
     ripgrep
+    hostctl
+    dotbare
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -179,7 +181,7 @@ j() {
 }
 
 alias his="history -i"
-alias cat="bat"
+# alias cat="bat"
 alias sed='gsed'
 alias vimpluginstall="vim +PlugInstall! +qa!"
 alias vimplugupdate="vim +PlugUpdate! +qa!"

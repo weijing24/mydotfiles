@@ -5,12 +5,12 @@ OS_RELEASE=$(uname)
 ###############################################################
 # set zsh as default shell
 echo "++++++++++ change shell to zsh ++++++++++"
-chsh -s /bin/zsh
+apt install -y zsh
+mv ~/.zshrc ~/.zsh_origin
 
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-cp ~/.zshrc ~/.zsh_origin
-
+chsh -s /bin/zsh
 
 ###############################################################
 # => This section is for custom config
