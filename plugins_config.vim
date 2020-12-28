@@ -8,10 +8,10 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 " 当NERDTree为剩下的唯一窗口时自动关闭
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let NERDChristmasTree=1
-let NERDTreeShowLineNumbers=1
-let g:NERDTreeChDirMode=2
-let g:NERDTreeWinSize=30"  视窗大小
+let NERDChristmasTree       = 1
+let NERDTreeShowLineNumbers = 1
+let g:NERDTreeChDirMode     = 2
+let g:NERDTreeWinSize       = 30  "  视窗大小
 " let NERDTreeIgnore=['\.pyc','\~$','\.swp']
 " let NERDTreeShowBookmarks=1
 " let g:NERDTreeMinimalUI=1
@@ -90,32 +90,22 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " need to install fone awesome
 let g:lightline#ale#indicator_checking = "\uf110"
-let g:lightline#ale#indicator_infos = "\uf129"
+let g:lightline#ale#indicator_infos    = "\uf129"
 let g:lightline#ale#indicator_warnings = "\ue00a"
-let g:lightline#ale#indicator_errors = "\uf00d"
-let g:lightline#ale#indicator_ok = "\uf00c"
+let g:lightline#ale#indicator_errors   = "\uf00d"
+let g:lightline#ale#indicator_ok       = "\uf00c"
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-fugitive config
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <space>gs :Gstatus<cr>
-nnoremap <space>gd :Gdiff<cr>
-nnoremap <space>ga :Git add -p<cr>
-nnoremap <space>gc :Gcommit -v<cr>
 
 " vim-signify config
 " -------------------------------------------------------------------------------------------
-let g:signify_realtime=0
-let g:signify_disable_by_default = 0
-let g:signify_line_highlight = 1
-let g:signify_vcs_list = ["git","svn"]
+let g:signify_realtime              = 0
+let g:signify_disable_by_default    = 0
+let g:signify_line_highlight        = 1
+let g:signify_vcs_list              = ["git","svn"]
 let g:signify_cursorhold_insert     = 1
 let g:signify_cursorhold_normal     = 1
 let g:signify_update_on_bufenter    = 0
 let g:signify_update_on_focusgained = 1
-
-" coc config
 
 " auto-pairs config
 au Filetype vim let b:AutoPairs= {'(':')', '[':']', '{':'}',"'":"'", '`':'`'}
@@ -224,49 +214,8 @@ let g:ale_linters = {
 
 " vim auto save config
 " ---------------------------------------------------------------------------------------------
-let g:auto_save = 0
+let g:auto_save = 1
 let g:auto_save_events = ["InsertLeave", "TextChanged", "TextChangedI", "CursorHoldI", "CompleteDone"]
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-go config
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
-let g:go_auto_type_info = 1
-let g:go_def_mapping_enabled = 0
-let g:godef_split=2
-let g:go_fmt_command = "goimports" " 格式化将默认的 gofmt 替换
-let g:go_autodetect_gopath = 1
-let g:go_list_type = "quickfix"
-let g:go_version_warning = 1
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_generate_tags = 1
-function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#test#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
-endfunction
-" autocmd FileType go nmap <leader>b  <Plug>(go-build)
-autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-autocmd FileType go nmap <leader>r  <Plug>(go-run)
-autocmd FileType go nmap <leader>t <Plug>(go-test)
-autocmd FileType go nmap <Leader>i <Plug>(go-info)
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-terraform config
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:terraform_align=1
-let g:terraform_fold_sections=1
-" let g:terraform_fmt_on_save=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => easymotion config
@@ -276,3 +225,27 @@ map <Leader><leader>h <Plug>(easymotion-linebackward)
 map <Leader><Leader>j <Plug>(easymotion-j)
 map <Leader><Leader>k <Plug>(easymotion-k)
 map <Leader><leader>l <Plug>(easymotion-lineforward)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-slime config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:slime_target = "vimterminal"
+let g:slime_vimterminal_cmd = "python3"
+let g:slime_vimterminal_config = {"term_finish": "close"}
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => editorconfig-vim config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let b:EditorConfig_disable = 0
+au FileType gitcommit let b:EditorConfig_disable = 0
+let g:EditorConfig_exclude_patterns = ['scp://.*']
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => EasyAlign config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)

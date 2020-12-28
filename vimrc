@@ -47,11 +47,10 @@ set noeol        " solve no newline at end of file
 set whichwrap+=<,>,h,l
 filetype plugin indent on 	" Load plugins according to detected filetype
 " ts 一个TAB字符占多少个空格、sw 每层缩进的空格数、sts 每次退格将删除X个空格
-set ts=4
-set expandtab
-set autoindent
-autocmd FileType yaml,terraform,shell setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-autocmd FileType c,cpp,python,go setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
+" set expandtab
+" set autoindent
+" autocmd FileType yaml,terraform,shell setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+" autocmd FileType c,cpp,python,go setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " 关闭方向键, 强迫自己用 hjkl
 map <Left> <Nop>
