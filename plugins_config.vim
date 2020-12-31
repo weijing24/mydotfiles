@@ -212,11 +212,6 @@ let g:ale_linters = {
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
 
-" vim auto save config
-" ---------------------------------------------------------------------------------------------
-let g:auto_save = 1
-let g:auto_save_events = ["InsertLeave", "TextChanged", "TextChangedI", "CursorHoldI", "CompleteDone"]
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => easymotion config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

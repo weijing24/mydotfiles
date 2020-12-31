@@ -35,7 +35,6 @@ Plug 'tpope/vim-surround'                           " 引号替换
 Plug 'tpope/vim-repeat'                             " 重复上一次操作
 Plug 'sheerun/vim-polyglot'                         " 语法高亮
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " 模糊搜索项目中的文件
-Plug 'vim-scripts/vim-auto-save'
 Plug 'mileszs/ack.vim'
 " ---------------------------------------------------------------------------------------------
 call plug#end()
