@@ -4,30 +4,30 @@
 	; proxy = socks5://127.0.0.1:1086
 
 [user]
-	name = weijing24
-	email = 645509024@qq.com
+    name = weijing24
+    email = 645509024@qq.com
 [includeIf "gitdir:~/workspace/"]
-	path = ~/.gitconfig_ui
+    path = ~/.gitconfig_ui
 
 [core]
-	editor = vim
-	excludesfile = /Users/jim/.gitignore
-	autocrlf = false
-	pager = diff-so-fancy | less --tabs=4 -RFX
+    editor = vim
+    excludesfile = /Users/jim/.gitignore
+    autocrlf = false
+    pager = diff-so-fancy | less --tabs=4 -RFX
 	#pager = delta
 
 [diff]
-	tool = meld
+    tool = meld
 [difftool "meld"]
     prompt = false
     cmd = meld "$LOCAL" "$REMOTE"
 
 [merge]
     tool = meld
-	conflictstyle = diff3
+    conflictstyle = diff3
 [mergetool "meld"]
-	prompt = false
+    prompt = false
     cmd = meld $LOCAL $BASE $REMOTE --output=$MERGED --auto-merge
 
 [pull]
-	rebase = true
+    rebase = true
