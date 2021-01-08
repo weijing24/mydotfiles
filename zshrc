@@ -6,7 +6,15 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 
-ZSH_THEME="random"
+ZSH_THEME="rjm"
+ZSH_THEME="murilasso"
+ZSH_THEME="josh"
+ZSH_THEME="intheloop"
+ZSH_THEME="half-life"
+ZSH_THEME="gnzh"
+ZSH_THEME="3den"
+ZSH_THEME="af-magic"
+ZSH_THEME="amuse"
 ZSH_THEME="kphoen"
 ZSH_THEME="essembeh"
 ZSH_THEME="juanghurtado"
@@ -69,6 +77,7 @@ plugins=(
     ripgrep
     hostctl
     dotbare
+    forgit
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -191,6 +200,8 @@ alias wget="wget -c "
 alias axel="axel -a -n 5 "
 alias lock="m lock"
 alias gop="git remote prune origin"
+alias tf="terraform"
+alias rgf="rg --no-heading --files | rg"
 hub version > /dev/null 2>&1 && eval "$(hub alias -s)"
 exa > /dev/null 2>&1 && alias ls=exa
 neofetch > /dev/null 2>&1 && alias sysinfo="neofetch"
@@ -202,7 +213,9 @@ export PATH="$HOME/.tfenv/bin:$PATH"
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export DISABLE_MAGIC_FUNCTIONS=true
-export BAT_CONFIG_PATH="$HOME/.bat.conf"    # must use $HOME, ~ not work
+export BAT_CONFIG_PATH="$HOME/.bat.conf"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 # Go path for macOS
 if [[ "$(uname)" == 'Darwin' ]]; then
  #   alias vim='/usr/local/bin/vim'
@@ -223,6 +236,9 @@ export FZF_DEFAULT_OPTS='
         '
 #         # --preview "head -100 {}"
 
+#forgit config
+export FORGIT_LOG_GRAPH_ENABLE=false
+
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
 
@@ -233,9 +249,5 @@ jdk() {
  }
 
 export EDITOR="vim"
-
-github_latest_release_download() {
-    curl -s "https://api.github.com/repos/$1/releases/latest"  | jq -r ".assets[] | select(.name | contains(\"zip\"|\"gz\"|\"dmg\")) | .browser_download_url"
-}
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
