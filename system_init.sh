@@ -48,7 +48,7 @@ if [ $OS_RELEASE = "Darwin" ];then
     echo "+++++++++ install software +++++++++"
     brew tap homebrew/cask-fonts homebrew/dupes
     brew install tmux wget axel telnet minio/stable/mc autojump jq bat fzf diff-so-fancy m-cli ripgrep gnu-sed binutils watch fx mycli iproute2mac fswatch coreutils exa neofetch awscli awslogs tldr reattach-to-user-namespace tflint
-    brew cask install iina font-hack-nerd-font glance qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize cronnix switchhosts openinterminal
+    brew cask install iina font-hack-nerd-font qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize cronnix openinterminal
 # 不常用
 # brew cask install dbeaver-community Sloth kap adoptopenjdk/openjdk/adoptopenjdk8 mos osxfuse ntfs-3g mounty
 # ntfs

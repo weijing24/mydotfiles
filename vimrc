@@ -39,8 +39,6 @@ set nocompatible		" 去除VI一致性
 set noshowmode			" 不显示 INSERT
 set si                      "Smart indent
 set wrap                    "Wrap lines
-set foldmethod=indent           " 代码折叠
-set nofoldenable                " 不自动折叠
 set backspace=indent,eol,start " for ycmi del
 set binary
 set noeol        " solve no newline at end of file

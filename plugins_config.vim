@@ -244,3 +244,10 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vimagit config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:magit_commit_title_limit=300
+let g:magit_default_show_all_files=1
+let g:magit_default_sections = ['info', 'commit', 'staged', 'unstaged']
