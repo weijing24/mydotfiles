@@ -202,6 +202,7 @@ alias lock="m lock"
 alias gop="git remote prune origin"
 alias tf="terraform"
 alias rgf="rg --no-heading --files | rg"
+alias cat="bat"
 hub version > /dev/null 2>&1 && eval "$(hub alias -s)"
 exa > /dev/null 2>&1 && alias ls=exa
 neofetch > /dev/null 2>&1 && alias sysinfo="neofetch"
