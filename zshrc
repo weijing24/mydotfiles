@@ -75,7 +75,7 @@ plugins=(
     tmux        # ta tad ts tl tksv tkss
     git-open
     ripgrep
-    hostctl
+    hostctl     # auto completion
     dotbare
     forgit
 )
