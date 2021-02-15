@@ -76,7 +76,6 @@ plugins=(
     git-open
     ripgrep
     hostctl     # auto completion
-    dotbare
     forgit
 )
 
@@ -251,4 +250,5 @@ jdk() {
 
 export EDITOR="vim"
 
+export GPG_TTY=$(tty)
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
