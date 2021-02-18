@@ -6,6 +6,12 @@
 [user]
     name = weijing24
     email = 645509024@qq.com
+	signingkey = A2E93283FD4A96DD
+[gpg]
+	program = gpg
+[commit]
+	gpgsign = true
+
 [includeIf "gitdir:~/workspace/"]
     path = ~/.gitconfig_ui
 
@@ -14,6 +20,7 @@
     excludesfile = /Users/jim/.gitignore
     autocrlf = false
     pager = diff-so-fancy | less --tabs=4 -RFX
+	quotepath = false
 	#pager = delta
 
 [diff]
