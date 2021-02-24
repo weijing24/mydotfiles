@@ -36,4 +36,5 @@ composer.lock
 *.tfstate
 *.tfstate.*
 
+# log dir
 log
