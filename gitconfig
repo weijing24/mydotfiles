@@ -32,6 +32,9 @@
     prompt = false
     cmd = meld $LOCAL $BASE $REMOTE --output=$MERGED --auto-merge
 
+[push]
+    default = simple
+
 [pull]
     rebase = true
 
