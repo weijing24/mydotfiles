@@ -127,33 +127,33 @@ fi
 # Add em alias for macOS
 export PS1_backup=$PS1
 
-function gitconfig_ui () {
-    git config user.name jim
-    git config user.email jim.wei@ui.com
-}
+# function gitconfig_ui () {
+#     git config user.name jim
+#     git config user.email jim.wei@ui.com
+# }
 
-function gitconfig_github() {
-    git config user.name weijing24
-    git config user.email 645509024@qq.com
-}
+# function gitconfig_github() {
+#     git config user.name weijing24
+#     git config user.email 645509024@qq.com
+# }
 
-function upgrade_custom_plugins () {
-  printf "${BLUE}%s${NORMAL}\n" "Upgrading custom plugins"
+# function upgrade_custom_plugins () {
+#   printf "${BLUE}%s${NORMAL}\n" "Upgrading custom plugins"
 
-  find "${ZSH_CUSTOM}" -type d -name .git | while read d
-  do
-    p=$(dirname "$d")
-    cd "${p}"
-    echo -e "${BLUE}${p}${NORMAL}"
-    if git pull --rebase --stat origin master
-    then
-      printf "%s\n" "Hooray! $d has been updated and/or is at the current version."
-    else
-      printf "${RED}%s${NORMAL}\n" 'There was an error updating. Try again later?'
-    fi
-    echo "\n"
-  done
-}
+#   find "${ZSH_CUSTOM}" -type d -name .git | while read d
+#   do
+#     p=$(dirname "$d")
+#     cd "${p}"
+#     echo -e "${BLUE}${p}${NORMAL}"
+#     if git pull --rebase --stat origin master
+#     then
+#       printf "%s\n" "Hooray! $d has been updated and/or is at the current version."
+#     else
+#       printf "${RED}%s${NORMAL}\n" 'There was an error updating. Try again later?'
+#     fi
+#     echo "\n"
+#   done
+# }
 
 function preview(){
 	fzf --preview '[[ $(file --mime {}) =~ binary ]] &&
