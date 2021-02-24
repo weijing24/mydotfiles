@@ -162,32 +162,6 @@ function preview(){
                  (bat --style=numbers --color=always {} ||
 		cat {}) 2> /dev/null | head -500'
 }
-function chrome() {
-  local cols sep google_history open
-  cols=$(( COLUMNS / 3 ))
-  sep='{::}'
-
-  if [ "$(uname)" = "Darwin" ]; then
-    google_history="$HOME/Library/Application Support/Google/Chrome/Default/History"
-    open=open
-  else
-    google_history="$HOME/.config/google-chrome/Default/History"
-    open=xdg-open
-  fi
-  cp -f "$google_history" /tmp/h
-  sqlite3 -separator $sep /tmp/h \
-    "select substr(title, 1, $cols), url
-     from urls order by last_visit_time desc" |
-  awk -F $sep '{printf "%-'$cols's  \x1b[36m%s\x1b[m\n", $1, $2}' |
-  fzf --ansi --multi | sed 's#.*\(https*://\)#\1#' | xargs $open > /dev/null 2> /dev/null
-}
-j() {
-    if [[ "$#" -ne 0 ]]; then
-        cd $(autojump $@)
-        return
-    fi
-    cd "$(autojump -s | sort -k1gr | awk '$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }' |  fzf --height 40% --reverse --inline-info)"
-}
 
 alias his="history -i"
 # alias cat="bat"
