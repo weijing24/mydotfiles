@@ -18,6 +18,7 @@ ZSH_THEME="amuse"
 ZSH_THEME="kphoen"
 ZSH_THEME="essembeh"
 ZSH_THEME="juanghurtado"
+ZSH_THEME="pmcgee"
 # ZSH_THEME="tjkirch"
 
 # Example aliases
@@ -54,7 +55,7 @@ DISABLE_AUTO_TITLE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
-    git                 #https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/git
+    git                 #provide git alias, omz plugin info git
     git-extras
     autojump
     docker
