@@ -208,3 +208,11 @@ export EDITOR="vim"
 
 export GPG_TTY=$(tty)
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+awsp() {
+    export AWS_PROFILE="$(aws-profiles | fzf)"
+}
+
+aws-profiles() {
+    cat ~/.aws/credentials | grep '\[' | grep -v '#' | tr -d '[' | tr -d ']'
+}
