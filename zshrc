@@ -55,29 +55,27 @@ DISABLE_AUTO_TITLE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
-    git                 #provide git alias, omz plugin info git
-    git-extras
+    git                         #provide git alias, omz plugin info git
     autojump
     docker
-    docker-compose
     web-search
-    encode64            # e64 d64
-    # emoji
-    zsh-navigation-tools
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    zsh-completions
-    extract             # extract xxx.tar.gz
-    # vi-mode           # https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/vi-mode
-    zsh_reload  # src 可以 reload zshrc
-    ssh		#git@github.com:zpm-zsh/ssh.git
-    fzf
-    mysql-colorize
-    tmux        # ta tad ts tl tksv tkss
-    git-open
+    encode64                    # e64 d64
+    tmux                        # ta tad ts tl tksv tkss
+    extract                     # extract xxx.tar.gz, use command x
     ripgrep
-    hostctl     # auto completion
-    forgit
+    hostctl                     # hostctl auto completion
+    zsh_reload                  # src reload zshrc session
+    # emoji
+    fzf
+    zsh-navigation-tools        # ^+r search history
+    zsh-autosuggestions         # show command tips
+    zsh-syntax-highlighting     # show command color
+    zsh-completions             # auto completions
+    ssh		                      # git@github.com:zpm-zsh/ssh.git
+    mysql-colorize              # https://github.com/zpm-zsh/mysql-colorize
+    git-open                    # https://github.com/paulirish/git-open
+    forgit                      # https://github.com/wfxr/forgit
+    autoupdate                  # update custom plugin git@github.com:TamCore/autoupdate-oh-my-zsh-plugins.git
 )
 
 source $ZSH/oh-my-zsh.sh
