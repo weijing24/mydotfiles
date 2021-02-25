@@ -144,7 +144,6 @@ function preview(){
 }
 
 alias his="history -i"
-# alias cat="bat"
 alias sed='gsed'
 alias vimpluginstall="vim +PlugInstall! +qa!"
 alias vimplugupdate="vim +PlugUpdate! +qa!"
@@ -158,9 +157,8 @@ alias tf="terraform"
 alias rgf="rg --no-heading --files | rg"
 alias cat="bat"
 alias cp="rsync -aP"
+alias ls="exa"
 hub version > /dev/null 2>&1 && eval "$(hub alias -s)"
-exa > /dev/null 2>&1 && alias ls=exa
-neofetch > /dev/null 2>&1 && alias sysinfo="neofetch"
 # alias ag="ag --color-path 35 --color-match '1;35' --color-line-number 32"
 
 # system env
