@@ -1,0 +1,112 @@
+source $HOME/antigen.zsh
+
+antigen use oh-my-zsh
+
+antigen bundle zpm-zsh/ssh
+antigen bundle paulirish/git-open
+antigen bundle wfxr/forgit
+antigen bundle zdharma/fast-syntax-highlighting
+antigen bundle mfaerevaag/wd
+antigen bundle git
+antigen bundle autojump
+antigen bundle docker
+antigen bundle web-search
+antigen bundle encode64
+antigen bundle tmux
+antigen bundle extract
+antigen bundle ripgrep
+antigen bundle hostctl
+antigen bundle fzf
+antigen bundle zsh_reload
+antigen bundle zsh-navigation-tools
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
+
+antigen theme af-magic
+antigen apply
+
+# Customize to your needs...
+HISTSIZE=10000000
+SAVEHIST=10000000
+setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
+setopt HIST_FIND_NO_DUPS
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt EXTENDED_HISTORY
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3,bold,underline'
+DISABLE_AUTO_TITLE="true"
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
+# fzf config
+export FZF_BASE=/usr/local/bin/fzf
+export FZF_DEFAULT_OPTS='
+        --height 90% --multi --layout=reverse --border
+        --bind ctrl-f:page-down,ctrl-b:page-up
+        --preview-window "right:60%:wrap"
+        '
+        # --preview "head -100 {}"
+
+#forgit config
+export FORGIT_LOG_GRAPH_ENABLE=false
+
+# autoload -U +X bashcompinit && bashcompinit
+
+jdk() {
+        version=$1
+        export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
+        java -version
+ }
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+awsp() {
+    export AWS_PROFILE="$(aws-profiles | fzf)"
+}
+
+aws-profiles() {
+    cat ~/.aws/credentials | grep '\[' | grep -v '#' | tr -d '[' | tr -d ']'
+}
+
+# Add em alias for macOS
+# export PS1_backup=$PS1
+
+# system env
+export PATH="$HOME/.tgenv/bin:$PATH"
+export PATH="$HOME/.tfenv/bin:$PATH"
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export DISABLE_MAGIC_FUNCTIONS=true
+export BAT_CONFIG_PATH="$HOME/.bat.conf"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export EDITOR="vim"
+export GPG_TTY=$(tty)
+
+alias zshconfig="vim ~/.zshrc"
+alias his="history -i"
+alias vimpluginstall="vim +PlugInstall! +qa!"
+alias vimplugupdate="vim +PlugUpdate! +qa!"
+alias vimplugclean="vim +PlugClean! +qa!"
+alias vimplugupgrade="vim +PlugUpgrade! +qa!"
+alias wget="wget -c "
+alias axel="axel -a -n 5 "
+alias lock="m lock"
+alias gop="git remote prune origin"
+alias tf="terraform"
+alias rgf="rg --no-heading --files | rg"
+alias cat="bat"
+alias cp="rsync -aP"
+alias ls="exa"
+alias weather='curl v2.wttr.in'
+if [[ $OSTYPE == darwin* ]]; then
+    alias sed='gsed'
+fi
+
+hub version > /dev/null 2>&1 && eval "$(hub alias -s)"

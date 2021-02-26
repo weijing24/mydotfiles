@@ -22,7 +22,7 @@ ZSH_THEME="pmcgee"
 # ZSH_THEME="tjkirch"
 
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
@@ -68,14 +68,15 @@ plugins=(
     # emoji
     fzf
     zsh-navigation-tools        # ^+r search history
-    zsh-autosuggestions         # show command tips
-    zsh-syntax-highlighting     # show command color
+    # zsh-syntax-highlighting     # show command color
     zsh-completions             # auto completions
     ssh		                      # git@github.com:zpm-zsh/ssh.git
-    mysql-colorize              # https://github.com/zpm-zsh/mysql-colorize
     git-open                    # https://github.com/paulirish/git-open
     forgit                      # https://github.com/wfxr/forgit
     autoupdate                  # update custom plugin git@github.com:TamCore/autoupdate-oh-my-zsh-plugins.git
+    # fast-syntax-highlighting    # replace zsh-syntax-highlighting https://github.com/zdharma/fast-syntax-highlighting
+    wd
+    zsh-autosuggestions         # show command tips
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -157,6 +158,7 @@ alias tf="terraform"
 alias rgf="rg --no-heading --files | rg"
 alias cat="bat"
 alias cp="rsync -aP"
+alias rm="rm -i"
 alias ls="exa"
 hub version > /dev/null 2>&1 && eval "$(hub alias -s)"
 # alias ag="ag --color-path 35 --color-match '1;35' --color-line-number 32"
