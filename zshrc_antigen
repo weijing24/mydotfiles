@@ -2,11 +2,7 @@ source $HOME/antigen.zsh
 
 antigen use oh-my-zsh
 
-antigen bundle zpm-zsh/ssh
-antigen bundle paulirish/git-open
-antigen bundle wfxr/forgit
-antigen bundle zdharma/fast-syntax-highlighting
-antigen bundle mfaerevaag/wd
+# OMZ plugin
 antigen bundle git
 antigen bundle autojump
 antigen bundle docker
@@ -17,8 +13,15 @@ antigen bundle extract
 antigen bundle ripgrep
 antigen bundle hostctl
 antigen bundle fzf
+antigen bundle colored-man-pages
 antigen bundle zsh_reload
 antigen bundle zsh-navigation-tools
+# Third party plugin
+antigen bundle zpm-zsh/ssh
+antigen bundle paulirish/git-open
+antigen bundle wfxr/forgit
+antigen bundle zdharma/fast-syntax-highlighting
+antigen bundle mfaerevaag/wd
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 
