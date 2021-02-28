@@ -18,7 +18,7 @@ ZSH_THEME="amuse"
 ZSH_THEME="kphoen"
 ZSH_THEME="essembeh"
 ZSH_THEME="juanghurtado"
-ZSH_THEME="pmcgee"
+# ZSH_THEME="pmcgee"
 # ZSH_THEME="tjkirch"
 
 # Example aliases
@@ -67,6 +67,7 @@ plugins=(
     zsh_reload                  # src reload zshrc session
     # emoji
     fzf
+    colored-man-pages
     zsh-navigation-tools        # ^+r search history
     # zsh-syntax-highlighting     # show command color
     zsh-completions             # auto completions
