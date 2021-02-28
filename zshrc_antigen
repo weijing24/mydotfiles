@@ -19,11 +19,11 @@ antigen bundle hostctl
 antigen bundle fzf
 antigen bundle zsh_reload
 antigen bundle zsh-navigation-tools
-antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 
 antigen theme af-magic
+# antigen theme romkatv/powerlevel10k
 antigen apply
 
 # Customize to your needs...
@@ -40,9 +40,8 @@ DISABLE_AUTO_TITLE="true"
 
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-
-  autoload -Uz compinit
-  compinit
+  # autoload -Uz compinit
+  # compinit
 fi
 
 # fzf config
@@ -85,7 +84,7 @@ export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export DISABLE_MAGIC_FUNCTIONS=true
 export BAT_CONFIG_PATH="$HOME/.bat.conf"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+# export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export EDITOR="vim"
 export GPG_TTY=$(tty)
 
