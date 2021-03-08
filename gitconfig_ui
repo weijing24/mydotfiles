@@ -1,13 +1,13 @@
 [user]
-    name = jim.wei
-    email = jim.wei@ui.com
+  name = jim.wei
+  email = jim.wei@ui.com
 	signingkey = E9404F4DE92E1B18
 
 [gpg]
-	program = gpg
+  program = gpg
 
 [commit]
-	gpgsign = true
+  gpgsign = true
 
 [hub]
     host = git.uidev.tools

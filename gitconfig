@@ -35,6 +35,9 @@
 [push]
     default = simple
 
+[remote "origin"]
+    fetch = +refs/pull/*/head:refs/pullreqs/*
+
 [pull]
     rebase = true
 
