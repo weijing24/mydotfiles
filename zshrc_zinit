@@ -1,6 +1,7 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+export GPG_TTY=$(tty)
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -39,10 +40,10 @@ zinit wait lucid for \
 zinit as"completion" wait lucid for \
     OMZ::plugins/extract/_extract \
     OMZ::plugins/ripgrep/_ripgrep \
-    OMZ::plugins/docker/_docker \
+    # OMZ::plugins/docker/_docker \
     # plugins/_hostctl
     # hostctl
-# Third party plugin
+# Install third party plugin
 zinit wait lucid for \
     zpm-zsh/ssh \
     paulirish/git-open \
@@ -58,6 +59,11 @@ zinit wait lucid for \
 zinit wait"1" lucid for \
     psprint/zsh-navigation-tools \
 ### End of Zinit's plugin install chunk
+
+zinit as"program" wait"1" if"[[ $OSTYPE == linux* ]]" lucid from"gh-r" for \
+    mv"exa* -> exa"    ogham/exa
+    # mv"*/rg -> rg"     BurntSushi/ripgrep \
+    # mv"*/hyperfine -> hyperfine"     @sharkdp/hyperfine \
 
 #https://zdharma.org/zinit/wiki/id-as/
 # zinit ice as"program" from"gh-r" mv"docker-c* -> docker-compose"
@@ -85,6 +91,7 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt EXTENDED_HISTORY
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3,bold,underline'
+DISABLE_AUTO_TITLE="true"
 ### End of zsh config chunk
 
 # fzf config
@@ -100,17 +107,17 @@ export FZF_DEFAULT_OPTS='
 export FORGIT_LOG_GRAPH_ENABLE=false
 
 # custom function
-function jdk() {
+function jim/jdk() {
         version=$1
         export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
         java -version
  }
 
-function awsp() {
-    export AWS_PROFILE="$(aws-profiles | fzf)"
+function jim/awsp() {
+    export AWS_PROFILE="$(jim/aws-profiles | fzf)"
 }
 
-function aws-profiles() {
+function jim/aws-profiles() {
     cat ~/.aws/credentials | grep '\[' | grep -v '#' | tr -d '[' | tr -d ']'
 }
 
@@ -123,9 +130,9 @@ export DISABLE_MAGIC_FUNCTIONS=true
 export BAT_CONFIG_PATH="$HOME/.bat.conf"
 # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export EDITOR="vim"
-export GPG_TTY=$(tty)
 
 alias zshconfig="vim ~/.zshrc"
+alias sshconfig="vim ~/.ssh/config"
 alias his="history -i"
 alias vimpluginstall="vim +PlugInstall! +qa!"
 alias vimplugupdate="vim +PlugUpdate! +qa!"
@@ -146,7 +153,11 @@ if [[ $OSTYPE == darwin* ]]; then
     alias sed='gsed'
 fi
 
-hub version > /dev/null 2>&1 && eval "$(hub alias -s)"
+# hub version > /dev/null 2>&1 && eval "$(hub alias -s)"
+
+source $HOME/github/macdotfiles/mac_config/misc.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# custom p10k
+POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION="🤺"
