@@ -61,9 +61,10 @@ zinit wait"1" lucid for \
 ### End of Zinit's plugin install chunk
 
 zinit as"program" wait"1" if"[[ $OSTYPE == linux* ]]" lucid from"gh-r" for \
-    mv"exa* -> exa"    ogham/exa
-    # mv"*/rg -> rg"     BurntSushi/ripgrep \
-    # mv"*/hyperfine -> hyperfine"     @sharkdp/hyperfine \
+    mv"exa* -> exa"    ogham/exa \
+    mv"*/rg -> rg"     BurntSushi/ripgrep \
+    mv"*/hyperfine -> hyperfine"     @sharkdp/hyperfine \
+    mv"*/bat -> bat"    @sharkdp/bat \
 
 #https://zdharma.org/zinit/wiki/id-as/
 # zinit ice as"program" from"gh-r" mv"docker-c* -> docker-compose"
