@@ -63,6 +63,7 @@ zinit wait"1" lucid for \
 zinit as"program" wait"1" if"[[ $OSTYPE == linux* ]]" lucid from"gh-r" for \
     mv"exa* -> exa"    ogham/exa \
     mv"*/rg -> rg"     BurntSushi/ripgrep \
+    mv"*/bin/hub -> hub"    @github/hub \
     mv"*/hyperfine -> hyperfine"     @sharkdp/hyperfine \
     mv"*/bat -> bat"    @sharkdp/bat \
 
@@ -92,6 +93,7 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt EXTENDED_HISTORY
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3,bold,underline'
+ZSH_AUTOSUGGEST_USE_ASYNC=1
 DISABLE_AUTO_TITLE="true"
 ### End of zsh config chunk
 
@@ -135,6 +137,7 @@ export EDITOR="vim"
 alias zshconfig="vim ~/.zshrc"
 alias sshconfig="vim ~/.ssh/config"
 alias his="history -i"
+alias git="hub"
 alias vimpluginstall="vim +PlugInstall! +qa!"
 alias vimplugupdate="vim +PlugUpdate! +qa!"
 alias vimplugclean="vim +PlugClean! +qa!"
