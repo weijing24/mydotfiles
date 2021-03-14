@@ -54,7 +54,7 @@ zinit wait lucid for \
         zdharma/fast-syntax-highlighting \
     atload"_zsh_autosuggest_start" \
         zsh-users/zsh-autosuggestions \
-    atload"zicompinit; zicdreplay" blockf atpull'zinit creinstall -q .' \
+    atload"zicompinit; zicdreplay" blockf atpull"zinit creinstall -q ." \
         zsh-users/zsh-completions
 zinit wait"1" lucid for \
     psprint/zsh-navigation-tools \
@@ -164,4 +164,5 @@ source $HOME/github/macdotfiles/mac_config/misc.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # custom p10k
-POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION="🤺"
+# POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION="🤺"
+POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=$'\U1F93A'
