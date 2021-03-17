@@ -155,7 +155,7 @@ alias rm="rm -i"
 alias weather='curl v2.wttr.in'
 hub version > /dev/null 2>&1 && eval "$(hub alias -s)"
 if [[ $OSTYPE == "darwin*" ]]; then
-    alias sed='gsed'
+    alias sed="gsed"
 fi
 
 source $HOME/github/macdotfiles/mac_config/misc.zsh
