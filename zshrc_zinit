@@ -2,6 +2,7 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 export GPG_TTY=$(tty)
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -15,6 +16,9 @@ if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
         print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
 source "$HOME/.zinit/bin/zinit.zsh"
+# autoload -Uz _zinit
+# (( ${+_comps} )) && _comps[zinit]=_zinit
+
 ### End of Zinit's installer chunk
 
 # OMZ provide lib for many plugins, So load first
@@ -45,18 +49,21 @@ zinit as"completion" wait lucid for \
     # plugins/_hostctl
     # hostctl
 # Install third party plugin
+zinit has"fzf" wait lucid for \
+    multisrc"shell/{key-bindings,completion}.zsh" pick"" \
+    junegunn/fzf
 zinit wait lucid for \
     zpm-zsh/ssh \
     paulirish/git-open \
     wfxr/forgit \
     mfaerevaag/wd \
     zinit-zsh/z-a-bin-gem-node\
-    atinit"zpcompinit; zpcdreplay" \
+    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
         zdharma/fast-syntax-highlighting \
-    atload"_zsh_autosuggest_start" \
-        zsh-users/zsh-autosuggestions \
-    atload"zicompinit; zicdreplay" blockf \
-        zsh-users/zsh-completions
+    blockf \
+        zsh-users/zsh-completions \
+    atload"!_zsh_autosuggest_start" \
+        zsh-users/zsh-autosuggestions
 zinit wait"1" lucid for \
     atload"zicompinit; zicdreplay" \
     psprint/zsh-navigation-tools \
@@ -65,6 +72,7 @@ zinit wait"1" lucid for \
 zinit as"program" wait"1" if"[[ $OSTYPE == linux* ]]" lucid from"gh-r" for \
     mv"exa* -> exa"    ogham/exa \
     mv"*/rg -> rg"     BurntSushi/ripgrep \
+    mv"diff-so-fancy -> diff-so-fancy" so-fancy/diff-so-fancy \
     mv"*/bin/hub -> hub"    @github/hub \
     mv"*/hyperfine -> hyperfine"     @sharkdp/hyperfine \
     mv"*/bat -> bat"    @sharkdp/bat \
