@@ -58,15 +58,13 @@ zinit wait lucid for \
     wfxr/forgit \
     mfaerevaag/wd \
     zinit-zsh/z-a-bin-gem-node\
+    psprint/zsh-navigation-tools \
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
         zdharma/fast-syntax-highlighting \
     blockf \
         zsh-users/zsh-completions \
     atload"!_zsh_autosuggest_start" \
         zsh-users/zsh-autosuggestions
-zinit wait"1" lucid for \
-    atload"zicompinit; zicdreplay" \
-    psprint/zsh-navigation-tools \
 ### End of Zinit's plugin install chunk
 
 zinit as"program" wait"1" if"[[ $OSTYPE == linux* ]]" lucid from"gh-r" for \
