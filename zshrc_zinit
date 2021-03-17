@@ -23,10 +23,11 @@ source "$HOME/.zinit/bin/zinit.zsh"
 
 # OMZ provide lib for many plugins, So load first
 zinit wait lucid for \
-    OMZL::git.zsh \
+    OMZL::compfix.zsh \
     OMZL::completion.zsh \
-    OMZL::history.zsh \
     OMZL::functions.zsh \
+    OMZL::git.zsh \
+    OMZL::history.zsh \
     OMZL::key-bindings.zsh \
     OMZL::theme-and-appearance.zsh \
     OMZL::prompt_info_functions.zsh \
