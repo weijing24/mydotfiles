@@ -55,7 +55,7 @@ zinit wait lucid for \
         zdharma/fast-syntax-highlighting \
     atload"_zsh_autosuggest_start" \
         zsh-users/zsh-autosuggestions \
-    atload"zicompinit; zicdreplay" blockf atpull"zinit creinstall -q ." \
+    atload"zicompinit; zicdreplay" blockf \
         zsh-users/zsh-completions
 zinit wait"1" lucid for \
     atload"zicompinit; zicdreplay" \
