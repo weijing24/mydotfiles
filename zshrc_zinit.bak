@@ -55,7 +55,7 @@ zinit wait lucid for \
         zdharma/fast-syntax-highlighting \
     atload"_zsh_autosuggest_start" \
         zsh-users/zsh-autosuggestions \
-    atload"zicompinit; zicdreplay" blockf atpull"zinit creinstall -q ." \
+    atload"zicompinit; zicdreplay" \
         zsh-users/zsh-completions
 zinit wait"1" lucid for \
     atload"zicompinit; zicdreplay" \
@@ -94,6 +94,8 @@ setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history 
 setopt HIST_FIND_NO_DUPS
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_SPACE                                # prefix commands you don't want stored with a space
+HISTORY_IGNORE="(exit|ls|open|pwd)"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3,bold,underline'
 ZSH_AUTOSUGGEST_USE_ASYNC=1
 DISABLE_AUTO_TITLE="true"
@@ -139,6 +141,7 @@ export EDITOR="vim"
 alias zshconfig="vim ~/.zshrc"
 alias sshconfig="vim ~/.ssh/config"
 alias his="history -i"
+alias git="hub"
 alias vimpluginstall="vim +PlugInstall! +qa!"
 alias vimplugupdate="vim +PlugUpdate! +qa!"
 alias vimplugclean="vim +PlugClean! +qa!"
@@ -153,10 +156,11 @@ alias cat="bat"
 alias cp="rsync -aP"
 alias rm="rm -i"
 alias weather='curl v2.wttr.in'
-hub version > /dev/null 2>&1 && eval "$(hub alias -s)"
-if [[ $OSTYPE == "darwin*" ]]; then
+if [[ $OSTYPE == darwin* ]]; then
     alias sed='gsed'
 fi
+
+# hub version > /dev/null 2>&1 && eval "$(hub alias -s)"
 
 source $HOME/github/macdotfiles/mac_config/misc.zsh
 
