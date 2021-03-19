@@ -86,7 +86,7 @@ zinit as"program" wait"1" if"[[ $OSTYPE == linux* ]]" lucid from"gh-r" for \
 # PS1="READY > "
 # zinit ice wait'!0'
 # zinit snippet OMZT::af-magic  #OMZT::pmcgee
-zinit ice depth'1'
+zinit ice depth'1' lucid atinit'[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh'
 zinit light romkatv/powerlevel10k
 
 #autoload -Uz compinit; compinit; zinit cdreplay -q
@@ -168,7 +168,6 @@ fi
 source $HOME/github/macdotfiles/mac_config/misc.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # custom p10k
 # POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION="🤺"
 POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=$'\U1F93A'
