@@ -40,6 +40,7 @@ zinit wait lucid for \
     OMZP::tmux \
     OMZP::extract \
     OMZP::zsh_reload \
+	OMZP::kubectl \
     OMZP::fzf \
     OMZP::colored-man-pages \
 # Install OMZ autocompletion
@@ -58,6 +59,7 @@ zinit wait lucid for \
     paulirish/git-open \
     wfxr/forgit \
     mfaerevaag/wd \
+	Tarrasch/zsh-bd \
     zinit-zsh/z-a-bin-gem-node\
     psprint/zsh-navigation-tools \
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
@@ -101,6 +103,8 @@ setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history 
 setopt HIST_FIND_NO_DUPS
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt EXTENDED_HISTORY
+# https://stackoverflow.com/questions/11670935/comments-in-command-line-zsh/11873793#11873793
+setopt interactivecomments
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3,bold,underline'
 ZSH_AUTOSUGGEST_USE_ASYNC=1
 DISABLE_AUTO_TITLE="true"
@@ -134,8 +138,7 @@ function jim/aws-profiles() {
 }
 
 # system env
-export PATH="$HOME/.tgenv/bin:$PATH"
-export PATH="$HOME/.tfenv/bin:$PATH"
+export PATH="/opt/homebrew/bin:$HOME/.tgenv/bin:$HOME/.tfenv/bin:$PATH"
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export DISABLE_MAGIC_FUNCTIONS=true
@@ -160,6 +163,7 @@ alias cat="bat"
 alias cp="rsync -aP"
 alias rm="rm -i"
 alias weather='curl v2.wttr.in'
+alias kubectl="kubecolor"
 hub version > /dev/null 2>&1 && eval "$(hub alias -s)"
 if [[ $OSTYPE == "darwin*" ]]; then
     alias sed="gsed"
@@ -171,3 +175,42 @@ source $HOME/github/macdotfiles/mac_config/misc.zsh
 # custom p10k
 # POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION="🤺"
 POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=$'\U1F93A'
+
+_tru_fzf-snippet() {
+	snippets_dir=~/workspace/snippet
+    # merge filename and tags into single line
+    results=$(for FILE in $snippets_dir/*
+              do
+                  getname=$(basename $FILE)
+                  gettags=$(head -n 1 $FILE)
+                  echo "$getname \t $gettags"
+              done)
+
+    # filename=$(echo "$(echo $results | fzf -e -i )" | cut -d' ' -f 1)
+    filename=$(echo "$(echo $results | fzf -i )" | cut -d' ' -f 1)
+    # don't record command into history
+    # print -z " $(cat $snippets_dir/$filename | sed 1d)"
+    BUFFER=" $(cat $snippets_dir/$filename | sed 1d)"
+    CURSOR=0
+}
+
+zle -N _tru_fzf-snippet
+bindkey "^X'" _tru_fzf-snippet
+
+_jump_to_tabstop_in_snippet() {
+    # the idea is to match ${\w+}, and replace
+    # that with the empty string, and move the cursor to
+    # beginning of the match. If no match found, simply return
+    # valid place holders: ${}, ${somealphanumericstr}
+    local str=$BUFFER
+    local searchstr=''
+    [[ $str =~ ([$]\\{[[:alnum:]]*\\}) ]] && searchstr=$MATCH
+    [[ -z "$searchstr" ]] && return
+
+    local rest=${str#*$searchstr}
+    local pos=$(( ${#str} - ${#rest} - ${#searchstr} ))
+    BUFFER=$(echo ${str//${MATCH}/})
+    CURSOR=$pos
+}
+zle -N _jump_to_tabstop_in_snippet
+bindkey '^J' _jump_to_tabstop_in_snippet
