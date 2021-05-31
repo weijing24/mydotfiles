@@ -40,7 +40,7 @@ zinit wait lucid for \
     OMZP::tmux \
     OMZP::extract \
     OMZP::zsh_reload \
-	OMZP::kubectl \
+    OMZP::kubectl \
     OMZP::fzf \
     OMZP::colored-man-pages \
 # Install OMZ autocompletion
@@ -59,7 +59,7 @@ zinit wait lucid for \
     paulirish/git-open \
     wfxr/forgit \
     mfaerevaag/wd \
-	Tarrasch/zsh-bd \
+    Tarrasch/zsh-bd \
     zinit-zsh/z-a-bin-gem-node\
     psprint/zsh-navigation-tools \
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
